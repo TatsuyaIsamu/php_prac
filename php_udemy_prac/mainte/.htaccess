@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "IDとパスワードを入力してください"
+AuthUserFile /Users/isamutatsuya/workspace/php_prac/php_udemy_prac/mainte/.htpasswd
+require valid-user
