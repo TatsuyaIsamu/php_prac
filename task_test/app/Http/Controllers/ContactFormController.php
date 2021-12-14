@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ContactForm;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreContactForm;
 class ContactFormController extends Controller
 {
     /**
@@ -19,7 +20,7 @@ class ContactFormController extends Controller
         $contacts = DB::table('contact_forms')
         ->select('id', 'your_name', 'title', 'created_at')
         ->orderBy('created_at', 'DESC')
-        ->get();
+        ->paginate(20);
         return view('contact.index', compact('contacts'));
     }
 
@@ -40,7 +41,7 @@ class ContactFormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreContactForm $request)
     {
         $contact = new ContactForm;
 

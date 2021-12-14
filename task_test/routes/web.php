@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('shops/index', 'ShopController@index');
 
 Auth::routes();
 Route::group(['prefix' => 'contact', 'middleware' => 'auth'], function() {
